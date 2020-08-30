@@ -1,10 +1,9 @@
+import { DataService } from './../services/data.service';
 
 import { Component, OnInit} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ClientesService } from './../services/clientes.service';
-import { ClientesDataService } from './../services/clientes-data.service';
 import { Clientesclasse } from '../services/clientesclasse';
-
 
 @Component({
   selector: 'app-edit-cliente',
@@ -20,13 +19,13 @@ export class EditClienteComponent implements OnInit {
   constructor(
 
     private clienteService: ClientesService,
-    private clienteDataService: ClientesDataService, 
+    private datacliente: DataService,
     private toastr: ToastrService 
   ) { }
 
   ngOnInit(): void {
     this.cliente = new Clientesclasse();
-    this.clienteDataService.currentCliente.subscribe(data => {
+    this.datacliente.currentCliente.subscribe(data => {
       if (data.cliente && data.key) {
         this.cliente = new Clientesclasse();
         this.cliente.nome = data.cliente.nome;

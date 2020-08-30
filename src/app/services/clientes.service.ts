@@ -3,12 +3,18 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
 
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class ClientesService {
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(
+    private db: AngularFireDatabase,
+    private clienteclasse: Clientesclasse
+    ) { }
+
 
 insert(cliente: Clientesclasse) {
   this.db.list('cliente').push(cliente)

@@ -1,11 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
-
 import { ToastrService } from 'ngx-toastr';      
 import { Observable } from 'rxjs';
 import { ClientesService } from './../services/clientes.service';
-import { ClientesDataService } from './../services/clientes-data.service';
 import { Clientesclasse } from '../services/clientesclasse';
+import { DataService } from './../services/data.service';
 
 @Component({
   selector: 'app-student-list',
@@ -20,7 +19,7 @@ export class ListClienteComponent implements OnInit {
 
   constructor(
     private clienteService: ClientesService,
-    private clienteDataService: ClientesDataService, 
+    private datacliente: DataService,
     public toastr: ToastrService 
   ) { }
 
@@ -36,6 +35,6 @@ export class ListClienteComponent implements OnInit {
   }
 
   editar(cliente:Clientesclasse, key:string) {
-    this.clienteDataService.changeCliente(cliente, key);
+    this.datacliente.changeCliente(cliente, key);
   }
 }
