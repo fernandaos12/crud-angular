@@ -1,3 +1,7 @@
+# Crud using Angular 10, firebase and bootstrap
+
+Angular : version 10 using tabs for select crud
+
 # Crud
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.
